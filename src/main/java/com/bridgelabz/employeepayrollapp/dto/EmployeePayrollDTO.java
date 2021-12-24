@@ -1,10 +1,10 @@
-package com.bridgelabz.employeepayrollappdto;
+package com.bridgelabz.employeepayrollapp.dto;
 
 public class EmployeePayrollDTO {
 	public long id;
 	public String name;
 	public long salary;
-	
+
 	public EmployeePayrollDTO(long id, String name, long salary) {
 		super();
 		this.id = id;

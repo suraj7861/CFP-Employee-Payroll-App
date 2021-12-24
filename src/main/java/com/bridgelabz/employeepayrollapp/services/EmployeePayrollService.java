@@ -11,15 +11,15 @@ import com.bridgelabz.employeepayrollapp.model.EmployeePayrollData;
 @Service
 public class EmployeePayrollService implements IEmployeePayrollService {
 
+	private List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
+	
 	/**
 	 * get employee details 
 	 * @return : Employee details
 	 */
 	@Override
 	public List<EmployeePayrollData> getEmployeePayrollData() {
-		List<EmployeePayrollData> empDataList = new ArrayList<>();
-		empDataList.add(new EmployeePayrollData(1, new EmployeePayrollDTO("Suraj", 25000)));
-		return empDataList;
+		return employeePayrollList;
 	}
 
 	/**
@@ -28,9 +28,7 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 	 */
 	@Override
 	public EmployeePayrollData getEmployeePayrollDataById(int empId) {
-		EmployeePayrollData empData = null;
-		empData = new EmployeePayrollData(1, new EmployeePayrollDTO("Kishor", 28000));
-		return empData;
+		return employeePayrollList.get(empId-1);
 	}
 
 	/**
@@ -40,7 +38,8 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 	@Override
 	public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO empPayrollDTO) {
 		EmployeePayrollData empData = null;
-		empData = new EmployeePayrollData(1, empPayrollDTO);
+		empData = new EmployeePayrollData(employeePayrollList.size()+1,empPayrollDTO);
+		employeePayrollList.add(empData);
 		return empData;
 	}
 
@@ -49,9 +48,11 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 	 * @return : updated Employee details
 	 */
 	@Override
-	public EmployeePayrollData updateEmployeePayrollData(EmployeePayrollDTO empPayrollDTO) {
-		EmployeePayrollData empData = null;
-		empData = new EmployeePayrollData(1, empPayrollDTO);
+	public EmployeePayrollData updateEmployeePayrollData(int empId,EmployeePayrollDTO empPayrollDTO) {
+		EmployeePayrollData empData = this.getEmployeePayrollDataById(empId);
+		empData.setName(empPayrollDTO.name);
+		empData.setSalary(empPayrollDTO.salary);
+		employeePayrollList.set(empId-1,empData);
 		return empData;
 	}
 
@@ -60,7 +61,7 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 	 */
 	@Override
 	public void deleteEmployeePayrollData(int empId) {
-
+		employeePayrollList.remove(empId-1);
 	}
 
 }

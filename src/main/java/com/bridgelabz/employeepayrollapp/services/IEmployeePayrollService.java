@@ -25,7 +25,7 @@ public interface IEmployeePayrollService {
 	/**
 	 * Method: update employee details
 	 */
-	public EmployeePayrollData updateEmployeePayrollData(EmployeePayrollDTO empPayrollDTO);
+	public EmployeePayrollData updateEmployeePayrollData( int empId,EmployeePayrollDTO empPayrollDTO);
 
 	/**
 	 * Method: delete employee details

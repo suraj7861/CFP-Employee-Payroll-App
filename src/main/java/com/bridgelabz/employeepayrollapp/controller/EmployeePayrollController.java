@@ -1,5 +1,8 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,19 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bridgelabz.employeepayrollapp.dto.EmployeePayrollDTO;
 import com.bridgelabz.employeepayrollapp.dto.ResponseDTO;
 import com.bridgelabz.employeepayrollapp.model.EmployeePayrollData;
+import com.bridgelabz.employeepayrollapp.services.IEmployeePayrollService;
 
 @RestController
 @RequestMapping("/employee")
 public class EmployeePayrollController {
+
+	@Autowired
+	private IEmployeePayrollService employeePayrollService;
 
 	/**
 	 * @return : employee details
 	 */
 	@RequestMapping(value = { "/getAll" })
 	public ResponseEntity<ResponseDTO> getEmployeePayrollData() {
-		EmployeePayrollData employeePayrollData = null;
-		employeePayrollData = new EmployeePayrollData(1, new EmployeePayrollDTO("Suraj", 25000));
-		ResponseDTO respDTO = new ResponseDTO("Get call Successful:", employeePayrollData);
+		List<EmployeePayrollData> empDataList = null;
+		empDataList = employeePayrollService.getEmployeePayrollData();
+		ResponseDTO respDTO = new ResponseDTO("Get call Successful:", empDataList);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 
@@ -37,9 +44,9 @@ public class EmployeePayrollController {
 	 */
 	@GetMapping("/get/{empId}")
 	public ResponseEntity<ResponseDTO> getEmployeePayrollData(@PathVariable("empId") int empId) {
-		EmployeePayrollData employeePayrollData = null;
-		employeePayrollData = new EmployeePayrollData(empId, new EmployeePayrollDTO("Kishor", 28000));
-		ResponseDTO respDTO = new ResponseDTO("Get call for ID Successful:", employeePayrollData);
+		EmployeePayrollData empData = null;
+		empData = employeePayrollService.getEmployeePayrollDataById(empId);
+		ResponseDTO respDTO = new ResponseDTO("Get call for ID Successful:", empData);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 
@@ -50,9 +57,9 @@ public class EmployeePayrollController {
 	 */
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDTO> addEmployeePayrollData(@RequestBody EmployeePayrollDTO empPayrollDTO) {
-		EmployeePayrollData employeePayrollData = null;
-		employeePayrollData = new EmployeePayrollData(3, empPayrollDTO);
-		ResponseDTO respDTO = new ResponseDTO("Create Employee PayrollData:", employeePayrollData);
+		EmployeePayrollData empData = null;
+		empData = employeePayrollService.createEmployeePayrollData(empPayrollDTO);
+		ResponseDTO respDTO = new ResponseDTO("Created Employee PayrollData Successfully:", empData);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 
@@ -64,10 +71,10 @@ public class EmployeePayrollController {
 
 	@PutMapping("/update")
 	public ResponseEntity<ResponseDTO> updateEmployeePayrollData(@PathVariable("empId") int empId,
-			                          @RequestBody EmployeePayrollDTO empPayrollDTO) {
-		EmployeePayrollData employeePayrollData = null;
-		employeePayrollData = new EmployeePayrollData(empId, empPayrollDTO);
-		ResponseDTO respDTO = new ResponseDTO("Update Employee PayrollData Successful:", employeePayrollData);
+			@RequestBody EmployeePayrollDTO empPayrollDTO) {
+		EmployeePayrollData empData = null;
+		empData = employeePayrollService.updateEmployeePayrollData(empPayrollDTO);
+		ResponseDTO respDTO = new ResponseDTO("Updated Employee PayrollData Successfully:", empData);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 
 	}
@@ -79,6 +86,7 @@ public class EmployeePayrollController {
 	 */
 	@DeleteMapping("/delete/{empId}")
 	public ResponseEntity<ResponseDTO> deleteEmployeePayrollData(@PathVariable("empId") int empId) {
+		employeePayrollService.deleteEmployeePayrollData(empId);
 		ResponseDTO respDTO = new ResponseDTO("Deleted Successful,Deleted Id:", +empId);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}

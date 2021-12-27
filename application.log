@@ -866,3 +866,15 @@ Caused by: javax.management.InstanceAlreadyExistsException: org.springframework.
 
 =======
 >>>>>>> 5982d5f0003f07fb7dd7601dfdb6170792ee136b
+2021-12-27 17:49:24.060  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Starting EmployeePayrollApplication using Java 17.0.1 on DESKTOP-V6Q11GJ with PID 5872 (E:\Spring_Project\EmployeePayrollApplication\target\classes started by lenovo in E:\Spring_Project\EmployeePayrollApplication)
+2021-12-27 17:49:24.064 DEBUG 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-27 17:49:24.066  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : The following profiles are active: DEV
+2021-12-27 17:49:25.199  WARN 5872 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-27 17:49:25.446  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Started EmployeePayrollApplication in 1.585 seconds (JVM running for 425.173)
+2021-12-27 17:49:25.452  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Employee Payroll App Started in DEV Environment
+2021-12-27 17:49:27.012  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Starting EmployeePayrollApplication using Java 17.0.1 on DESKTOP-V6Q11GJ with PID 5872 (E:\Spring_Project\EmployeePayrollApplication\target\classes started by lenovo in E:\Spring_Project\EmployeePayrollApplication)
+2021-12-27 17:49:27.013 DEBUG 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-27 17:49:27.013  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : The following profiles are active: DEV
+2021-12-27 17:49:27.695  WARN 5872 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-27 17:49:27.921  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Started EmployeePayrollApplication in 0.958 seconds (JVM running for 427.649)
+2021-12-27 17:49:27.926  INFO 5872 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Employee Payroll App Started in DEV Environment

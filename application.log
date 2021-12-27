@@ -25,6 +25,7 @@
 2021-12-27 14:54:36.917  WARN 3320 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2021-12-27 14:54:37.289  INFO 3320 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Started EmployeePayrollApplication in 1.633 seconds (JVM running for 1272.021)
 2021-12-27 14:54:37.293  INFO 3320 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Employee Payroll App Started in COMMON Environment
+<<<<<<< HEAD
 2021-12-27 16:03:31.925  INFO 11104 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Starting EmployeePayrollApplication using Java 17.0.1 on DESKTOP-V6Q11GJ with PID 11104 (E:\Spring_Project\EmployeePayrollApplication\target\classes started by lenovo in E:\Spring_Project\EmployeePayrollApplication)
 2021-12-27 16:03:32.762 DEBUG 11104 --- [restartedMain] c.b.e.EmployeePayrollApplication         : Running with Spring Boot v2.6.2, Spring v5.3.14
 2021-12-27 16:03:32.762  INFO 11104 --- [restartedMain] c.b.e.EmployeePayrollApplication         : The following profiles are active: DEV
@@ -863,3 +864,5 @@ Caused by: javax.management.InstanceAlreadyExistsException: org.springframework.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.14.jar:5.3.14]
 	... 21 common frames omitted
 
+=======
+>>>>>>> 5982d5f0003f07fb7dd7601dfdb6170792ee136b

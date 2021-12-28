@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
@@ -24,6 +25,7 @@ public @ToString class EmployeePayrollDTO {
 	public String gender;
 
 	@JsonFormat(pattern = "dd MMM yyyy")
+	@NotNull(message = "startDate should not be null")
 	@PastOrPresent(message = "start date should be Past or Today's date")
 	public LocalDate startDate;
 

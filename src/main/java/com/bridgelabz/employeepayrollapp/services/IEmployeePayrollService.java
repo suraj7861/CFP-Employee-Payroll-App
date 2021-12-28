@@ -25,10 +25,15 @@ public interface IEmployeePayrollService {
 	/**
 	 * Method: update employee details
 	 */
-	public EmployeePayrollData updateEmployeePayrollData( int empId,EmployeePayrollDTO empPayrollDTO);
+	public EmployeePayrollData updateEmployeePayrollData(int empId, EmployeePayrollDTO empPayrollDTO);
 
 	/**
 	 * Method: delete employee details
 	 */
 	public void deleteEmployeePayrollData(int empId);
+
+	/**
+	 * Method: get employee details by department
+	 */
+	List<EmployeePayrollData> getEmployeesPayrollDataByDepartment(String department);
 }

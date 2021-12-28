@@ -44,6 +44,10 @@ public @Data class EmployeePayrollData {
 	@Column(name = "department")
 	private List<String> departments;
 
+	public EmployeePayrollData() {
+		super();
+	} 
+	
 	public EmployeePayrollData(EmployeePayrollDTO empPayRollDTO) {
 		this.updateEmployeePayroll(empPayRollDTO);
 	}
@@ -57,5 +61,7 @@ public @Data class EmployeePayrollData {
 		this.profilePic = empPayRollDTO.profilePic;
 		this.departments = empPayRollDTO.departments;
 	}
+
+
 
 }

@@ -16,23 +16,24 @@ import com.bridgelabz.employeepayrollapp.dto.ResponseDTO;
 public class EmployeePayrollExceptionHandler {
 
 	/**
-	 * handle any Exception thrown
+	 * handle MethodArgumentNotValid exceptions.
+	 * 
 	 * @param : exception
 	 * @return : ResponseEntity of Exception and HttpStatus
 	 */
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(
-			MethodArgumentNotValidException exception) {
+			           MethodArgumentNotValidException exception) {
 		List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
 		List<String> errMesg = errorList.stream().map(objErr -> objErr.getDefaultMessage())
-				.collect(Collectors.toList());
+				                .collect(Collectors.toList());
 		ResponseDTO responseDTO = new ResponseDTO("Exception While Processing REST Request", errMesg);
 		return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
 	}
 
 	/**
 	 * handle when user Id not found
-	 * @param exception
+	 * 
 	 * @return : ResponseEntity of Exception and HttpStatus
 	 */
 	@ExceptionHandler(EmployeePayrollException.class)

@@ -25,7 +25,7 @@ public class EmployeePayrollExceptionHandler {
 	public ResponseEntity<ResponseDTO> handelHttpMessageNotReadableException(
 			HttpMessageNotReadableException exception) {
 		log.error("Invalid Date Format", exception);
-		ResponseDTO responseDTO = new ResponseDTO(message, "Should have date in dd MMM yyyy format");
+		ResponseDTO responseDTO = new ResponseDTO(message, "Should have date in dd MMM yyyy format",HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
 	}
 
@@ -41,7 +41,7 @@ public class EmployeePayrollExceptionHandler {
 		List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
 		List<String> errMesg = errorList.stream().map(objErr -> objErr.getDefaultMessage())
 				.collect(Collectors.toList());
-		ResponseDTO responseDTO = new ResponseDTO(message, errMesg);
+		ResponseDTO responseDTO = new ResponseDTO(message, errMesg,HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
 	}
 
@@ -52,8 +52,9 @@ public class EmployeePayrollExceptionHandler {
 	 */
 	@ExceptionHandler(EmployeePayrollException.class)
 	public ResponseEntity<ResponseDTO> handleEmployeePayrollException(EmployeePayrollException exception) {
-		ResponseDTO responseDTO = new ResponseDTO(message, exception.getMessage());
+		ResponseDTO responseDTO = new ResponseDTO(message, exception.getMessage(), HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
 	}
+	
 
 }

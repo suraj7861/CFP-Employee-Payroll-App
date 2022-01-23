@@ -23,7 +23,7 @@ public @Data class EmployeePayrollData {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "emp_id")
-	private int employeeId;
+	private long employeeId;
 
 	@Column(name = "name")
 	private String name;
@@ -39,6 +39,12 @@ public @Data class EmployeePayrollData {
 	@Column(name = "profile_pic")
 	private String profilePic;
 
+	@Column(name = "email_id")
+	private String emailId;
+
+	@Column(name = "password")
+	private String password;
+
 	@ElementCollection
 	@CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "id"))
 	@Column(name = "department")
@@ -46,22 +52,22 @@ public @Data class EmployeePayrollData {
 
 	public EmployeePayrollData() {
 		super();
-	} 
-	
+	}
+
 	public EmployeePayrollData(EmployeePayrollDTO empPayRollDTO) {
 		this.updateEmployeePayroll(empPayRollDTO);
 	}
 
 	public void updateEmployeePayroll(EmployeePayrollDTO empPayRollDTO) {
-		this.name = empPayRollDTO.name;
-		this.salary = empPayRollDTO.salary;
-		this.gender = empPayRollDTO.gender;
-		this.note = empPayRollDTO.note;
-		this.startDate = empPayRollDTO.startDate;
-		this.profilePic = empPayRollDTO.profilePic;
-		this.departments = empPayRollDTO.departments;
+		this.name = empPayRollDTO.getName();
+		this.salary = empPayRollDTO.getSalary();
+		this.gender = empPayRollDTO.getGender();
+		this.note = empPayRollDTO.getNote();
+		this.startDate = empPayRollDTO.getStartDate();
+		this.profilePic = empPayRollDTO.getProfilePic();
+		this.emailId = empPayRollDTO.getEmailId();
+		this.password = empPayRollDTO.getPassword();
+		this.departments = empPayRollDTO.getDepartments();
 	}
-
-
 
 }

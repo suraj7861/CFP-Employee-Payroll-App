@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.ToString;
+
 @Data
 
 public @ToString class EmployeePayrollDTO {
@@ -27,7 +28,6 @@ public @ToString class EmployeePayrollDTO {
 	@Pattern(regexp = "male|female", message = "Gender needs to either male or female")
 	private String gender;
 
-//	@JsonIgnore
 	@JsonFormat(pattern = "dd MMM yyyy")
 	@NotNull(message = "startDate should not be null")
 	@PastOrPresent(message = "start date should be Past or Today's date")
@@ -38,11 +38,11 @@ public @ToString class EmployeePayrollDTO {
 
 	@NotEmpty(message = "profilePic can not be null")
 	private String profilePic;
-	
+
 	@Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$", message = "email is invalid")
 	@NotEmpty(message = "emailId can not be null")
 	private String emailId;
-	
+
 	@Pattern(regexp = "^[A-Z]{1}[a-zA-Z0-9#$@%&*\\$]{5,}$", message = "password is Invalid")
 	@NotEmpty(message = "password can not be null")
 	private String password;
